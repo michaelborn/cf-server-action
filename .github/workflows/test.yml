@@ -16,6 +16,6 @@ jobs:
           serverPort: 2022
 
       - name: Run testbox specs
-        uses: Ortus-Solutions/commandbox-action@v1
+        uses: Ortus-Solutions/commandbox-action@v1.0.1
         with:
           cmd: testbox run runner=http://localhost:9999/tests/index.cfm
