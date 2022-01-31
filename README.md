@@ -12,13 +12,32 @@ This example will start up a Lucee5-based CFML server listening on port 2022:
 
 ```yml
 steps:
-  - uses: Ortus-Solutions/cf-server-action@v1
+  - uses: michaelborn/cf-server-action@v1
     with:
       imageTag: lucee5
       serverPort: 2022
 ```
 
-See [all supported tags](https://hub.docker.com/r/ortussolutions/commandbox/tags?)
+### Using a CF Server Matrix
+
+Pass `${{ matrix.cfengine }}` to the `imageTag` option to run your tests against a defined "matrix" of CF engines:
+
+```yml
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        cfengine: ["lucee5", "adobe2016", "adobe2018" ]
+    steps:
+      - name: Start server
+        uses: michaelborn/cf-server-action@v1
+        with:
+          imageTag: ${{ matrix.cfengine }}
+          serverPort: 1221
+```
 
 ### Environment Variable Support
 
@@ -26,7 +45,7 @@ You can configure some CommandBox and CFConfig properties using environment vari
 
 ```yml
 steps:
-  - uses: Ortus-Solutions/cf-server-action@v1
+  - uses: michaelborn/cf-server-action@v1
     with:
       imageTag: adobe2018
       serverPort: 9999
@@ -54,7 +73,7 @@ For more info, read:
 
 ## Arguments
 
-* `imageTag` - The CommandBox server to use. For example, `lucee@5.3.8`.
+* `imageTag` - The CommandBox server to use. For example, `lucee@5.3.8`. See [all supported tags](https://hub.docker.com/r/ortussolutions/commandbox/tags?)
 * `serverPort` - Port for the CommandBox container to listen on. This is NOT the same as the server.json port.
 
 # License
