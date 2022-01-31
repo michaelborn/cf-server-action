@@ -16,4 +16,4 @@ docker run \
     --detach \
     --publish $SERVER_PORT:8080 \
     --volume $PWD:/app \
-    $DOCKER_CONTAINER:IMAGE_TAG
+    $DOCKER_CONTAINER:$IMAGE_TAG
