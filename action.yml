@@ -1,0 +1,21 @@
+name: "CF Server Action"
+description: "Start a ColdFusion server process."
+
+branding:
+  icon: 'server'  
+  color: 'blue'
+
+inputs:
+  imageTag:
+    description: "Docker image tag to use when starting the server. Examples: `adobe2018`, `lucee5`, `lucee5-alpine-3.4.4`."
+    required: true
+  serverPort:
+    description: "Port to serve requests from."
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.imageTag }}
+    - ${{ inputs.serverPort }}

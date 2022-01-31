@@ -1,0 +1,21 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Start server
+        uses: ./
+        with:
+          imageTag: lucee5
+          serverPort: 2022
+
+      - name: Run testbox specs
+        uses: Ortus-Solutions/commandbox-action@v1
+        with:
+          cmd: testbox run runner=http://localhost:9999/tests/index.cfm
