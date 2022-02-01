@@ -16,5 +16,10 @@ echo "docker run --detach --publish $SERVER_PORT:8080 --volume $PWD:/app $DOCKER
 docker run \
     --detach \
     --publish $SERVER_PORT:8080 \
+    --env PORT=8080 \
     --volume $PWD:/app \
     $DOCKER_CONTAINER:$IMAGE_TAG
+
+sleep 5
+
+curl http://127.0.0.1:$SERVER_PORT
