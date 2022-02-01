@@ -21,5 +21,3 @@ docker run \
     $DOCKER_CONTAINER:$IMAGE_TAG
 
 sleep 5
-
-curl http://127.0.0.1:$SERVER_PORT
