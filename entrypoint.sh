@@ -11,7 +11,7 @@ DOCKER_CONTAINER=ortussolutions/commandbox
 export BOX_SERVER_WEB_HTTP_PORT=8080
 
 echo "Starting commandbox server instance"
-echo 'docker run --detach --publish $SERVER_PORT:8080 --volume $PWD:/app $DOCKER_CONTAINER:$IMAGE_TAG'
+echo "docker run --detach --publish $SERVER_PORT:8080 --volume $PWD:/app $DOCKER_CONTAINER:$IMAGE_TAG"
 
 docker run \
     --detach \
