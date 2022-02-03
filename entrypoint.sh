@@ -16,6 +16,7 @@ docker pull $DOCKER_CONTAINER:$IMAGE_TAG
 echo "Starting commandbox server instance"
 echo "docker run --detach --publish $SERVER_PORT:8080 --volume $PWD:/app $DOCKER_CONTAINER:$IMAGE_TAG"
 docker run \
+    --rm \
     --name server \
     --publish $SERVER_PORT:8080 \
     --env PORT=8080 \
@@ -23,7 +24,7 @@ docker run \
     --detach \
     $DOCKER_CONTAINER:$IMAGE_TAG
 
-sleep 20
+sleep 25
 
 docker logs --tail=10 server
 
