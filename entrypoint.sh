@@ -19,9 +19,9 @@ docker run \
     --publish $SERVER_PORT:8080 \
     --env PORT=8080 \
     --volume $PWD:/app \
-    --detach \
     $DOCKER_CONTAINER:$IMAGE_TAG
+    # --detach \
 
-sleep 10
+# sleep 10
 
 # docker run --rm curlimages/curl:7.81.0 http://127.0.0.1:$SERVER_PORT/index.cfm
