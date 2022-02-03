@@ -16,7 +16,7 @@ docker pull $DOCKER_CONTAINER:$IMAGE_TAG
 echo "Starting commandbox server instance"
 echo "docker run --detach --publish $SERVER_PORT:8080 --volume $PWD:/app $DOCKER_CONTAINER:$IMAGE_TAG"
 docker run \
-    --name server
+    --name server \
     --publish $SERVER_PORT:8080 \
     --env PORT=8080 \
     --volume $PWD:/app \
