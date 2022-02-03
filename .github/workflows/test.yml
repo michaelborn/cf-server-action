@@ -15,6 +15,9 @@ jobs:
           imageTag: lucee5
           serverPort: 2022
 
+      - name: confirm server is listening
+        run: curl http://127.0.0.1:2022/tests/index.cfm
+
       - name: Run testbox specs
         uses: Ortus-Solutions/commandbox-action@v1.0.2
         with:

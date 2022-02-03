@@ -27,5 +27,3 @@ docker run \
 sleep 25
 
 docker logs --tail=10 server
-
-# docker run --rm curlimages/curl:7.81.0 http://127.0.0.1:$SERVER_PORT/index.cfm
