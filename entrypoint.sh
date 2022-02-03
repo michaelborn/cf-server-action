@@ -16,12 +16,15 @@ docker pull $DOCKER_CONTAINER:$IMAGE_TAG
 echo "Starting commandbox server instance"
 echo "docker run --detach --publish $SERVER_PORT:8080 --volume $PWD:/app $DOCKER_CONTAINER:$IMAGE_TAG"
 docker run \
+    --name server
     --publish $SERVER_PORT:8080 \
     --env PORT=8080 \
     --volume $PWD:/app \
+    --detach \
     $DOCKER_CONTAINER:$IMAGE_TAG
-    # --detach \
 
-# sleep 10
+sleep 20
+
+docker logs --tail=10 server
 
 # docker run --rm curlimages/curl:7.81.0 http://127.0.0.1:$SERVER_PORT/index.cfm
