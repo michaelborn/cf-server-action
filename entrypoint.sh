@@ -22,6 +22,6 @@ docker run \
     --detach \
     $DOCKER_CONTAINER:$IMAGE_TAG
 
-sleep 30
+sleep 10
 
-docker run --rm curlimages/curl:7.81.0 http://127.0.0.1:$SERVER_PORT/index.cfm
+# docker run --rm curlimages/curl:7.81.0 http://127.0.0.1:$SERVER_PORT/index.cfm
