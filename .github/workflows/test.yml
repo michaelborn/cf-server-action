@@ -21,4 +21,4 @@ jobs:
       - name: Run testbox specs
         uses: Ortus-Solutions/commandbox-action@v1.0.2
         with:
-          cmd: testbox run runner=http://127.0.0.1:2022/tests/index.cfm
+          cmd: testbox run runner=http://server:2022/tests/index.cfm
